@@ -1,0 +1,24 @@
+@model NEYMARKET.DTO.PromocaoDTO
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Novopromoção</h3>
+
+<hr/>
+
+<form asp-action="Salvar" method="POST" asp-controller="Promocoes">
+    <input type="hidden" asp-for="Id" value="0">
+    <label>Nome</label>
+    <input type="text" asp-for="Nome" class="form-control" placeholder="Nome da promoção"><br>
+    <span asp-validation-for="Nome"></span>
+
+    <label asp-for="ProdutoID" >Produto:</label>
+    <select class="form-control" asp-for="ProdutoID" asp-items='@(new SelectList(@ViewBag.Produtos,"Id","Nome"))'></select><br>
+    <span asp-validation-for="ProdutoID"></span>
+
+<label for="Porcentagem">Porcentagem: </label>
+<input type="number" min="0" max="100" asp-for="Porcentagem" placeholder="   10%"><br>
+
+<button class="btn btn-success">Cadastrar</button>
+
+</form>

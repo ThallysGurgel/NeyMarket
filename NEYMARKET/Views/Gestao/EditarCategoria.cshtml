@@ -1,0 +1,13 @@
+@model NEYMARKET.DTO.CategoriaDTO
+@{
+    Layout = "_LayoutAdmin";
+}
+<h3>Editar categoria</h3>
+<hr/>
+<form class="form-horizontal" asp-controller="Categorias" asp-action="Atualizar" method="POST">
+<input type="Hidden" asp-for="Id">
+<label>Nome</label>
+<input type="text" asp-for="Nome" class="form-control" placeholder="Nome da categoria"><br>
+<span asp-validation-for="Nome"></span><br>
+<button class="btn btn-success">Atualizar</button>
+</form>
